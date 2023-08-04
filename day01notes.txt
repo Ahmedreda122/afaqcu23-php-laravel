@@ -1,0 +1,14 @@
+1-install composer
+        => while installing ? php path --> download composer --> php
+        --> installing package
+
+2- use composer to install laravel and create project
+composer create-project laravel/laravel example-app
+
+
+php artisan command line tool --> used to apply actions on the laravel project
+
+php artisan commands:
+    php artisan serve # start development server
+    php artisan
+
