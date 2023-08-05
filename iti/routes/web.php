@@ -63,6 +63,12 @@ Route::get("/welcome/{name}",[ITIController::class, 'saywelcome']);
 use App\Http\Controllers\StudentController;
 
 Route::get("/students/land", [StudentController::class, 'landing']);
-Route::get('/students/iti', [StudentController::class, 'index'])->name('students.list');
+Route::get('/students/list', [StudentController::class, 'index'])->name('students.list');
+Route::get('/students/{id}', [StudentController::class, 'show'])->name('students.show');
+Route::get('/students/{id}/delete', [StudentController::class, 'delete'])->name('students.delete');
 
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

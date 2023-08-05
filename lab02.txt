@@ -1,0 +1,34 @@
+
+
+create migration files for products table 
+
+products (
+
+    id , name , description , image, price , created_at , updated_at 
+)
+
+images --> text field =--> saving images name added in the public 
+
+
+
+2- create model for the products table  (Product)
+
+
+3- manaually insert data in the products table in the database 
+
+4- use orm resource apis to perform the following 
+
+    1- page products/
+        list all the products in a table  ---> (show , delete )
+    when press show 
+    2- products/id 
+        list details of the selected product --> don't forget to display the  image
+
+    when you press delete 
+    3- products/id/delete   
+        delete selected product and back to products/
+
+    bonus  --> ask user to confirm if he/she wants to delete object or not ?
+
+
+    ---> you must use styles --->

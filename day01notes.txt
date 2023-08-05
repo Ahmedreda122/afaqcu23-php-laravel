@@ -12,3 +12,100 @@ php artisan commands:
     php artisan serve # start development server
     php artisan
 
+
+
+#############################33
+crud operations on the students
+select
+insert
+update
+delete
+
+
+####################1- connect laravel to mysql ##############
+
+1-configure mysql in .env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=laravelstcu
+DB_USERNAME=itiphp
+DB_PASSWORD=Iti123456789_
+
+
+##################################################
+ask laravel to create table students
+id , name , image , grade
+
+use migration files to create desired table ?
+iti/database/migrations
+
+I need to make new migration file ?
+use :: php artisan make:migration --help
+
+to create students table
+
+php artisan make:migration students
+php artisan make:migration create_students_table
+
+https://laravel.com/docs/10.x/migrations
+
+to create table columns
+use the function $table->datatypes;
+https://laravel.com/docs/10.x/migrations#available-column-types
+
+
+to apply  changes on the database
+php artisan migrate
+   this command check the content of migrations table in the database --> that contains the names of
+   the files already migrate
+
+ php artisan migrate:rollback
+   rollback the last batch of migration files
+
+##################################################
+--> add column to the table ,, without dropping the table ?
+
+php artisan make:migration add_email_to_students_table
+
+
+
+## reverse the migrate , rollback migrate
+php artisan migrate:rollback
+
+--> rollback ---> apply content of the function down in all migration files in the last patch
+
+
+##############################################################
+modify the column --> unique ?
+php artisan make:migration modify_email_in_students_table
+php artisan make:migration modify_email --table students
+
+
+migrations file are considered to be version control for the database architecture
+
+################################# Models #####################
+php artisan make:model Student
+
+once laravel detects that model name Student ---> connect model with table students
+
+
+
+########### to retrieve data
+1- database query builder
+ $students_1 = DB::table('students')
+            ->select()
+            ->get();
+
+ return data from table ? in form of  record ---> array
+
+
+
+ 2- ORM Model api resources to get data
+ $students =Student::all();
+ array of objects  (Student model)
+
+
+
+
+
