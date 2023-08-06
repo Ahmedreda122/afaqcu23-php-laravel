@@ -39,9 +39,6 @@ class StudentController extends Controller
 //        dd($students,$students_1);
 
         return view("students.index", $data=["students"=>$students]);
-
-
-
     }
 
     function landing(){
@@ -49,10 +46,7 @@ class StudentController extends Controller
     }
 
     function show($id){
-        # get student from the database
-        # select * from students where id=id;
-//        $student = Student::find($id);  # find function return null -->if object not found
-//        dd($student);
+//        dd($id);
         $student = Student::findOrFail($id);  # if object null --> redirect to 404 not found
         return view('students.show', $data = ["student"=>$student]);
     }
@@ -60,8 +54,74 @@ class StudentController extends Controller
     function  delete($id){
         $student = Student::findOrFail($id);
         $student->delete();
-//        return "deleted";
-        return to_route("students.list");
+        return to_route("students.index");
 
     }
+
+    function create(){
+        return view('students.create');
+    }
+
+    function store(){
+//        var_dump($_POST);
+        # you can capture the data sent by the form using request()
+        $params = request();
+//        dd($params);
+        $name = request('name');
+        $grade = request("grade");
+        $image = request("image");
+        $email = request("email");
+        ## use this information to create new object from the Student model and save it to the database
+        $student = new Student();
+        $student->name = $name;
+        $student->email = $email;
+        $student->grade = $grade;
+        $student->image = $image;
+        ## to save it to the database
+        $student->save();
+
+//        return "data received";
+        return to_route('students.index');
+    }
+
+    ### I need function for edit
+
+    function  edit($id){
+        # retrun view  --> edit
+        $student = Student::findOrFail($id);
+        return view('students.edit', $data= ['student'=>$student]);
+    }
+
+    function  update($id){
+//        dd('in updated');
+        $student = Student::findOrFail($id);
+        ### get updated data from request object
+        $name = request('name');
+        $grade = request("grade");
+        $image = request("image");
+        $email = request("email");
+//        dd($name, $grade, $image, $email);
+
+        ###update existing object with the new data
+        $student->name = $name;
+        $student->email = $email;
+        $student->grade = $grade;
+        $student->image = $image;
+        ## to save it to the database
+        $student->save();
+
+//        return to_route('students.index');
+        return to_route('students.show', $student->id);
+    }
+
+
+
+
+
+
+
+
+
+
+
 }

@@ -63,10 +63,14 @@ Route::get("/welcome/{name}",[ITIController::class, 'saywelcome']);
 use App\Http\Controllers\StudentController;
 
 Route::get("/students/land", [StudentController::class, 'landing']);
-Route::get('/students/list', [StudentController::class, 'index'])->name('students.list');
+Route::get('/students/list', [StudentController::class, 'index'])->name('students.index');
+Route::get('/students/create', [StudentController::class, 'create'])->name('students.create');
 Route::get('/students/{id}', [StudentController::class, 'show'])->name('students.show');
 Route::get('/students/{id}/delete', [StudentController::class, 'delete'])->name('students.delete');
-
+Route::post("/students", [StudentController::class, 'store'])->name('students.store');
+Route::get('/students/{id}/edit', [StudentController::class, 'edit'])->name('students.edit');
+## when need to update an object  ---> it's preferred to use put method
+Route::put('/students/{id}', [StudentController::class, 'update'])->name('students.update');
 
 
 Auth::routes();
