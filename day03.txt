@@ -3,3 +3,21 @@
  validation for the request ?
 
 https://laravel.com/docs/10.x/validation#available-validation-rules
+
+
+---> resource controller
+    00> upload image
+---> resource post -->
+    title , body , images
+
+    php artisan make:migration create_posts_table
+    php artisan make:model Post
+    php artisan make:controller PostController
+     php artisan make:controller PostController -r -m Post
+
+---> relationship in models
+## relation posts , students
+each student can write many posts
+but each post is written only one student ?
+
+1 to many 

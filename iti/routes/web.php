@@ -73,6 +73,28 @@ Route::get('/students/{id}/edit', [StudentController::class, 'edit'])->name('stu
 Route::put('/students/{id}', [StudentController::class, 'update'])->name('students.update');
 
 
+
+
+#### you create routes for the controller operations into one line
+
+use App\Http\Controllers\PostController;
+Route::resource('posts',PostController::class);
+
+
+
+
+
+
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+/**
+GET|HEAD        posts ........................................... posts.index › PostController@index
+  POST            posts ....................................... posts.store › PostController@store
+  GET|HEAD        posts/create ..................... posts.create › PostController@create
+  GET|HEAD        posts/{post} ........................... posts.show › PostController@show
+  PUT|PATCH       posts/{post} ........................... posts.update › PostController@update
+  DELETE          posts/{post} ....................... posts.destroy › PostController@destroy
+  GET|HEAD        posts/{post}/edit ............................... posts.edit › PostController@edit
+**/
