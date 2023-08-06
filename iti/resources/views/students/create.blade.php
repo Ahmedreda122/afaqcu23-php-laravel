@@ -1,17 +1,37 @@
 @extends('layouts.base')
 
 @section('maincontent')
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <div class="container">
+
         <h1> Add new student </h1>
         <form method="POST" action="{{route('students.store')}}?track=php">
             @csrf
             <div class="mb-3">
                 <label  class="form-label">Name</label>
-                <input type="text" name='name'class="form-control" >
+                <input type="text" name='name'class="form-control" value="{{ old('name') }}" >
+                @error('name')
+                <span style="color: red; font-weight: bold;">
+                    {{ $message }}
+                </span>
+                @enderror
             </div>
             <div class="mb-3">
                 <label  class="form-label">Email</label>
-                <input type="email"  name='email' class="form-control" >
+                <input type="email"  name='email' class="form-control" value="{{old('email')}}" >
+                @error('email')
+                <span style="color: red; font-weight: bold;">
+                    {{ $message }}
+                </span>
+                @enderror
             </div>
             <div class="mb-3">
                 <label  class="form-label">Grade</label>

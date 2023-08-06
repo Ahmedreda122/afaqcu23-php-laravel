@@ -1,0 +1,5 @@
+
+
+ validation for the request ?
+
+https://laravel.com/docs/10.x/validation#available-validation-rules

@@ -63,10 +63,12 @@ class StudentController extends Controller
     }
 
     function store(){
-//        var_dump($_POST);
-        # you can capture the data sent by the form using request()
-        $params = request();
-//        dd($params);
+
+        request()->validate([
+            "name"=>'required|min:5',
+            "grade"=>"required",
+            'email'=>'required|unique:students'
+        ]);
         $name = request('name');
         $grade = request("grade");
         $image = request("image");
@@ -77,7 +79,6 @@ class StudentController extends Controller
         $student->email = $email;
         $student->grade = $grade;
         $student->image = $image;
-        ## to save it to the database
         $student->save();
 
 //        return "data received";
