@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\Student;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
@@ -24,8 +25,8 @@ class PostController extends Controller
     public function create()
     {
         //
-
-        return view('posts.create');
+        $students=  Student::all();
+        return view('posts.create', ['students'=>$students]);
     }
 
     /**
@@ -39,13 +40,15 @@ class PostController extends Controller
              "title"=>'required|unique:posts'
          ]);
 
-//         dd($request);
+//         dd($request->all());
 //         ## store post info
 //        dd($request->all());
 
 //        dd($request->image);
 //        dd($request->image);
-        $post =Post::create(['title'=>$request->title,'body'=> $request->body, "image"=>$request->image]);
+//        $post =Post::create(['title'=>$request->title,'body'=> $request->body, "image"=>$request->image]);
+        $post =Post::create($request->all());
+
         $this->save_image($request->image, $post);
         return to_route('posts.index');
 

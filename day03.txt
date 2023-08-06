@@ -20,4 +20,32 @@ https://laravel.com/docs/10.x/validation#available-validation-rules
 each student can write many posts
 but each post is written only one student ?
 
-1 to many 
+1 to many relationship
+
+tell posts --->col--> student_id --> students
+php artisan make:migration add_student_id_to_posts_table
+-----> in migration file ---------------------->
+  public function up(): void
+    {
+        Schema::table('posts', function (Blueprint $table) {
+            //
+            $table->foreignId('student_id')->nullable()->constrained();
+
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::table('posts', function (Blueprint $table) {
+            //
+            $table->dropForeign('student_id');
+        });
+    }
+
+
+-------------------------------------------------------------------
+
+---> tell model students . posts ---> one many relations

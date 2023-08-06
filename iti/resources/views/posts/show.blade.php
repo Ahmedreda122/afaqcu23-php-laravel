@@ -15,4 +15,7 @@
     </div>
     </div>
 
+    <h1> this will get the object of the student </h1>
+    {{$post->student}}
+
 @endsection

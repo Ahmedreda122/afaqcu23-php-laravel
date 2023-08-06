@@ -1,0 +1,22 @@
+
+
+continue to the previous lab
+1- create form for creating new products
+2- make sure that you can upload image in the product
+3- display image in show
+4- perform operations , edit , delete
+
+## don't forget to remove unwanted images
+hint:
+    use resource controller , resource routes
+
+ create model , controller -- > category
+   (id, name, created_at, updated_at)
+  page --> list all categories
+
+
+  --------------
+  make one to many relationship between product and category
+
+  display category name in products.index
+

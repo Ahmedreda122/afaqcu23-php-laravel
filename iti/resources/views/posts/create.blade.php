@@ -30,6 +30,17 @@
                 <label  class="form-label">Image</label>
                 <input type="file" name='image' class="form-control" >
             </div>
+
+            <div class="mb-3">
+                <label  class="form-label">Author</label>
+                <select class="form-select" name='student_id' aria-label="Default select example">
+                    <option selected disabled>Open this select menu</option>
+                    @foreach($students as $student)
+                        <option value="{{$student->id}}">{{$student->name}}</option>
+                    @endforeach
+
+                </select>
+            </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
 

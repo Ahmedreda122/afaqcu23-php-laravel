@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
+use App\Models\Student;
 class Post extends Model
 {
     use HasFactory;
@@ -13,5 +13,11 @@ class Post extends Model
      * when send associtive array of data to the function create, update
      * only keys specified in the $fillable will be passed to the object
      * */
-        protected $fillable =['title','body', 'image'];
+        protected $fillable =['title','body', 'image', 'student_id'];
+
+        function student(){
+            return $this->belongsTo(Student::class);
+        }
 }
+
+
