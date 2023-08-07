@@ -35,7 +35,19 @@ composer require laravel/ui
 ---> laravel/ui to install auth scafolding
 php artisan ui bootstrap --auth
 
+------------ when I add new student
+    --> add the user created the student to the info of the student
+    one to many --> users , students
+
+---> restrict store/ update / delete new students on the only authenticated user
+
 authorization ---> authorize authenticated users ?
+only the created the student can edit or delete it
+
+
+php artisan make:migration add_user_id_to_students_table
+
+
 
 
 

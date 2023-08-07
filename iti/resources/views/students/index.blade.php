@@ -1,11 +1,11 @@
-@extends('layouts.base')
+@extends('layouts.app')
 
-@section('maincontent')
+@section('content')
     <div class="container">
 {{--        @dump($students)--}}
         <a href="{{route('students.create')}}" class="btn btn-primary"> Add new Student  </a>
         <table class="table" style="">
-            <tr> <th> ID</th> <th> Name </th> <th> Email </th>   <th> Show</th> <th> Edit</th>
+            <tr> <th> ID</th> <th> Name </th> <th> Email </th>   <th> Added by</th> <th> Show</th> <th> Edit</th>
                 <th> Delete </th>
             </tr>
 
@@ -14,6 +14,7 @@
                     <td > {{$student->id }}</td>
                     <td> {{$student->name}}</td>
                     <td> {{$student->email }}</td>
+                    <td> {{$student->user ? $student->user->name: ''}}</td>
                     <td> <a href="{{route('students.show',$student->id)}}" class="btn btn-info"> Show </a></td>
                     <td> <a href="{{route('students.edit',$student->id)}}" class="btn btn-warning"> Edit </a></td>
 

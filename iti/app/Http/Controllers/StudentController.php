@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Student;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 
@@ -11,28 +12,14 @@ class StudentController extends Controller
 {
     //
 
+    function __construct(){
+        $this->middleware('auth')->only('store', 'delete', 'update');
+    }
+
+
     private  $students = ["Ahmed", "Mohamed", "Ali", "Sara"];
     function index(){
-        ## get the data from model ?
-        # select * from students
-//        $students = "";
 
-//        $students = DB::table('students')
-//            ->select('name', 'email as user_email')
-//            ->get();
-//
-//        dd($students);
-        $students_1 = DB::table('students')
-            ->select()
-            ->get();
-//
-//        dd($students);
-
-        ### use ORM api resources -->
-        /*
-         * as you are using ORM ---
-         * you can use api functions to facilitate queries
-         * */
 
         # select * from table ;
         $students = Student::all();
@@ -64,24 +51,22 @@ class StudentController extends Controller
 
     function store(){
 
+
+//        dd(Auth::user(), Auth::id());
         request()->validate([
             "name"=>'required|min:5',
             "grade"=>"required",
             'email'=>'required|unique:students'
         ]);
-        $name = request('name');
-        $grade = request("grade");
-        $image = request("image");
-        $email = request("email");
-        ## use this information to create new object from the Student model and save it to the database
-        $student = new Student();
-        $student->name = $name;
-        $student->email = $email;
-        $student->grade = $grade;
-        $student->image = $image;
-        $student->save();
+//        dd(\request()->all());
+        $data = request()->all();
+        dump($data['user_id']);
+//        $data['user_id']=Auth::id();
+//        dd($data);
+        $data['user_id'] = Auth::id();
+        dump($data['user_id']);
+        $student = Student::create($data);
 
-//        return "data received";
         return to_route('students.index');
     }
 

@@ -5,7 +5,7 @@
     <div class="container">
         <a href="{{route('posts.create')}}" class="btn btn-primary"> Add new POST  </a>
         <table class="table" style="">
-            <tr> <th> ID</th> <th> Title </th> <th> Author </th>   <th> Show</th> <th> Edit</th>
+            <tr> <th> ID</th> <th> Title </th> <th> Author </th>   </ha> <th> Show</th> <th> Edit</th>
                 <th> Delete </th>
             </tr>
 

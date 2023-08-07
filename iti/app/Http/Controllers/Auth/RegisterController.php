@@ -72,5 +72,5 @@ class RegisterController extends Controller
         ]);
     }
 
-    ## override trait function 
+    ## override trait function
 }

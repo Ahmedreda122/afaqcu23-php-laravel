@@ -1,6 +1,6 @@
-@extends('layouts.base')
+@extends('layouts.app')
 
-@section('maincontent')
+@section('content')
     <div class="container">
     <div class="card" style="width: 18rem;">
         <img src="{{asset('images/students/'.$student->image)}}" class="card-img-top" alt="...">

@@ -1,6 +1,6 @@
-@extends('layouts.base')
+@extends('layouts.app')
 
-@section('maincontent')
+@section('content')
     <div>
             <h1> This is my page updated </h1>
 

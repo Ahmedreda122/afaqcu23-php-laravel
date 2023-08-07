@@ -1,6 +1,6 @@
-@extends('layouts.base')
+@extends('layouts.app')
 
-@section('maincontent')
+@section('content')
     @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
@@ -12,9 +12,10 @@
     @endif
     <div class="container">
 
-        <h1> Add new student </h1>
+        <h1> Add new student by user {{Auth::user()? Auth::user()->name: ''}} </h1>
         <form method="POST" action="{{route('students.store')}}?track=php">
             @csrf
+            <input type="hidden" name="user_id" value="{{Auth::user()? Auth::id(): null}}">
             <div class="mb-3">
                 <label  class="form-label">Name</label>
                 <input type="text" name='name'class="form-control" value="{{ old('name') }}" >
