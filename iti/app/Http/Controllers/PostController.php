@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UpdatePostRequest;
 use App\Models\Post;
 use App\Models\Student;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use App\Http\Requests\StorePostRequest;
 
 class PostController extends Controller
 {
@@ -32,21 +34,9 @@ class PostController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StorePostRequest $request)
     {
-        //
-        ## request 00> object
-         $request->validate([
-             "title"=>'required|unique:posts'
-         ]);
 
-//         dd($request->all());
-//         ## store post info
-//        dd($request->all());
-
-//        dd($request->image);
-//        dd($request->image);
-//        $post =Post::create(['title'=>$request->title,'body'=> $request->body, "image"=>$request->image]);
         $post =Post::create($request->all());
 
         $this->save_image($request->image, $post);
@@ -61,10 +51,6 @@ class PostController extends Controller
     public function show(Post $post)  # resource controller ---> ask the model to get the object with
         # with the specified id
     {
-        //
-
-//        dd($post);
-
         return view('posts.show', ['post'=>$post]);
 
     }
@@ -81,16 +67,12 @@ class PostController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Post $post)
+    public function update(UpdatePostRequest $request, Post $post)
     {
         //
-        $request->validate([
-//            "title"=>'required|unique:posts,title'
-            "title"=>['required',Rule::unique('posts')->ignore($post)]
-        ]);
+
         $old_image = $post->image;
         $post->update($request->all());
-//        dd($request->all());
         $this->save_image($request->image, $post);
         if($request->image){
             $this->delete_old_image($old_image);

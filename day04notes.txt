@@ -11,8 +11,16 @@ Student  --> has many posts
 
 ---------------------------- customized requests ----------------------------------
 
+validation rules  ---> store
+                   ---> update
 
+                create specific class for request
 
+php artisan make:request StorePostRequest
+https://laravel.com/docs/10.x/validation#creating-form-requests
+
+customize error messages:
+https://laravel.com/docs/10.x/validation#customizing-the-error-messages
 
 
 -------------------------------- authentication , authorization ---------------------------------------------------
