@@ -40,8 +40,12 @@ class StudentController extends Controller
 
     function  delete($id){
         $student = Student::findOrFail($id);
-        $student->delete();
-        return to_route("students.index");
+        if (Auth::id()== $student->user_id ){
+            $student->delete();
+            return to_route("students.index");
+        }
+        return  abort(401);
+
 
     }
 

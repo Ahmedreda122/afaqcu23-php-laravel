@@ -42,7 +42,11 @@ php artisan ui bootstrap --auth
 ---> restrict store/ update / delete new students on the only authenticated user
 
 authorization ---> authorize authenticated users ?
+    -- > some users can do some actions --> other not
+
 only the created the student can edit or delete it
+
+---> gates
 
 
 php artisan make:migration add_user_id_to_students_table
