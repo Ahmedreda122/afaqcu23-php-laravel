@@ -1,0 +1,24 @@
+
+
+---> display posts written by student
+
+---> Student , Post (one to many)
+
+-------> model --> application relation between models and each other
+Post ---> one ---> model
+Student  --> has many posts
+
+
+---------------------------- customized requests ----------------------------------
+
+
+
+
+
+-------------------------------- authentication , authorization ---------------------------------------------------
+
+
+
+
+
+--------------------------------------policies and gates --------------------------------------------

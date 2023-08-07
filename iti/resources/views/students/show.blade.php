@@ -14,6 +14,16 @@
             <a href="{{route('students.index')}}" class="btn btn-primary">Go somewhere</a>
         </div>
     </div>
+
+        <h1> Posts written by this Student </h1>
+
+        @foreach($student->post as $post)
+            <li> <a href="{{route('posts.show', $post->id)}}"> {{$post->title}}</a> </li>
+        @endforeach
+{{--        <h2>--}}
+{{--                {{$student->post}}--}}
+{{--        </h2>--}}
     </div>
+
 
 @endsection
