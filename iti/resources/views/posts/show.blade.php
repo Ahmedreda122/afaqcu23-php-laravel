@@ -1,6 +1,6 @@
-@extends('layouts.base')
+@extends('layouts.app')
 
-@section('maincontent')
+@section('content')
     <div class="container">
     <div class="card" style="width: 18rem;">
         <img src="{{asset('images/posts/images/'.$post->image)}}" class="card-img-top" alt="...">
@@ -13,9 +13,10 @@
             <a href="{{route('posts.index')}}" class="btn btn-primary">Go somewhere</a>
         </div>
     </div>
+        <h1 style="color: red" > This will get the object of the student </h1>
+        {{$post->student}}
     </div>
 
-    <h1> this will get the object of the student </h1>
-    {{$post->student}}
+
 
 @endsection

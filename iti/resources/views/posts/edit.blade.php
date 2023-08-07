@@ -1,7 +1,6 @@
-@extends('layouts.base')
+@extends('layouts.app')
 
-
-@section('maincontent')
+@section('content')
 {{--    @dump($student)--}}
     <div class="container">
         <h1> Edit Post </h1>

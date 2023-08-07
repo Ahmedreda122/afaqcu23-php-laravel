@@ -1,6 +1,7 @@
-@extends('layouts.base')
+{{--@extends('layouts.base')--}}
+@extends('layouts.app')
 
-@section('maincontent')
+@section('content')
     <div class="container">
         <a href="{{route('posts.create')}}" class="btn btn-primary"> Add new POST  </a>
         <table class="table" style="">

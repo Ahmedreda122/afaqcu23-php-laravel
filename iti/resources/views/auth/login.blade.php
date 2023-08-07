@@ -1,7 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+
 <div class="container">
+    <h1> Hello world</h1>
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -54,7 +56,7 @@
                         <div class="row mb-0">
                             <div class="col-md-8 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
+                                    {{ __('Login To our Application') }}
                                 </button>
 
                                 @if (Route::has('password.request'))

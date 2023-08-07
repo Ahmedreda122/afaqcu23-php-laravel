@@ -86,7 +86,6 @@ Route::resource('posts',PostController::class);
 
 
 
-Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 /**
@@ -98,3 +97,19 @@ GET|HEAD        posts ........................................... posts.index �
   DELETE          posts/{post} ....................... posts.destroy › PostController@destroy
   GET|HEAD        posts/{post}/edit ............................... posts.edit › PostController@edit
 **/
+
+
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Auth::routes();
+/**
+
+GET|HEAD        login ........................................ login › Auth\LoginController@showLoginForm
+  POST            login ..................................... Auth\LoginController@login
+  POST            logout ................................... logout › Auth\LoginController@logout
+ *
+ *
+ *  GET|HEAD        register ................. register › Auth\RegisterController@showRegistrationForm
+POST            register .................................. Auth\RegisterController@register
+
+ */

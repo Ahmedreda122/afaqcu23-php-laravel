@@ -25,7 +25,17 @@ https://laravel.com/docs/10.x/validation#customizing-the-error-messages
 
 -------------------------------- authentication , authorization ---------------------------------------------------
 
+authentaction ---> user ==> username, password ---> can do this action
 
+authentication ---> laravel 10
+    ---> Livewire inertia --> builtin login and registeration module
+
+    ---> laravel ui ---> bootstrap
+composer require laravel/ui
+---> laravel/ui to install auth scafolding
+php artisan ui bootstrap --auth
+
+authorization ---> authorize authenticated users ?
 
 
 
