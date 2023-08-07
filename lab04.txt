@@ -1,0 +1,14 @@
+
+
+1- when you click show category display products related to each category
+
+2- install laravel/ui package  --> registeration , login scaffolding
+
+3- modify category table to accept user who create the category
+
+4- create a form to add / edit new category
+
+5- don't allow adding new products/ edit / delete to unauthenticated users
+6- don't allow adding new categories/ edit / delete to unauthenticated users
+
+7- only the category creator can edit or delete it. 

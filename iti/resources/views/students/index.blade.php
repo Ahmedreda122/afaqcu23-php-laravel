@@ -16,8 +16,11 @@
                     <td> {{$student->email }}</td>
                     <td> {{$student->user ? $student->user->name: ''}}</td>
                     <td> <a href="{{route('students.show',$student->id)}}" class="btn btn-info"> Show </a></td>
+                    @can('update-student',$student)
                     <td> <a href="{{route('students.edit',$student->id)}}" class="btn btn-warning"> Edit </a></td>
-
+                    @else
+                        <td> You cannot update this student </td>
+                    @endcan
                     <td> <a href="{{route("students.delete", $student->id)}}" class="btn btn-danger"> Delete </a></td>
                 </tr>
             @endforeach

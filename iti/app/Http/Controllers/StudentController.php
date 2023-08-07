@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Student;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Gate;
+
 
 
 class StudentController extends Controller
@@ -84,21 +86,13 @@ class StudentController extends Controller
 
     function  update($id){
 //        dd('in updated');
-        $student = Student::findOrFail($id);
-        ### get updated data from request object
-        $name = request('name');
-        $grade = request("grade");
-        $image = request("image");
-        $email = request("email");
-//        dd($name, $grade, $image, $email);
 
-        ###update existing object with the new data
-        $student->name = $name;
-        $student->email = $email;
-        $student->grade = $grade;
-        $student->image = $image;
-        ## to save it to the database
-        $student->save();
+        $student = Student::findOrFail($id);
+
+        if (! Gate::allows('update-student', $student)) {
+            abort(403);
+        }
+        $student->update(request()->all());
 
 //        return to_route('students.index');
         return to_route('students.show', $student->id);
