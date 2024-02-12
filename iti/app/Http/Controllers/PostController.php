@@ -36,13 +36,10 @@ class PostController extends Controller
      */
     public function store(StorePostRequest $request)
     {
-
-        $post =Post::create($request->all());
+        $post = Post::create($request->all());
 
         $this->save_image($request->image, $post);
         return to_route('posts.index');
-
-
     }
 
     /**
@@ -60,7 +57,6 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        //
         return view('posts.edit', ["post"=>$post]);
     }
 
@@ -69,8 +65,6 @@ class PostController extends Controller
      */
     public function update(UpdatePostRequest $request, Post $post)
     {
-        //
-
         $old_image = $post->image;
         $post->update($request->all());
         $this->save_image($request->image, $post);
@@ -78,7 +72,6 @@ class PostController extends Controller
             $this->delete_old_image($old_image);
         }
         return to_route('posts.show',$post->id);
-
     }
 
     /**
@@ -92,7 +85,7 @@ class PostController extends Controller
         return to_route('posts.index');
     }
 
-    private  function  save_image($image, $post){
+    private  function save_image($image, $post){
         if($image){
             $image_name = time().'.'.$image->extension();
             # move image from tmp folder to the public path

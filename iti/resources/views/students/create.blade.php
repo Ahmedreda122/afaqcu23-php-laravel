@@ -13,7 +13,7 @@
     <div class="container">
 
         <h1> Add new student by user {{Auth::user()? Auth::user()->name: ''}} </h1>
-        <form method="POST" action="{{route('students.store')}}?track=php">
+        <form method="POST" action="{{route('students.store')}}?track=php" enctype="multipart/form-data">
             @csrf
             <input type="hidden" name="user_id" value="{{Auth::user()? Auth::id(): null}}">
             <div class="mb-3">
@@ -40,7 +40,7 @@
             </div>
             <div class="mb-3">
                 <label  class="form-label">Image</label>
-                <input type="text" name='image' class="form-control" >
+                <input type="file" name='image' class="form-control" >
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>

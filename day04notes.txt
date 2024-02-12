@@ -33,7 +33,7 @@ authentication ---> laravel 10
     ---> laravel ui ---> bootstrap
 composer require laravel/ui
 ---> laravel/ui to install auth scafolding
-php artisan ui bootstrap --auth
+php artisan ui bootstrap --authaaf
 
 ------------ when I add new student
     --> add the user created the student to the info of the student

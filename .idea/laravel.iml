@@ -2,6 +2,12 @@
 <module type="WEB_MODULE" version="4">
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/iti" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/iti/tests/Feature" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/iti/tests/Unit" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/iti/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/spec" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/iti/vendor/psr/http-message" />
       <excludeFolder url="file://$MODULE_DIR$/iti/vendor/psr/http-factory" />
       <excludeFolder url="file://$MODULE_DIR$/iti/vendor/psr/log" />
@@ -113,6 +119,8 @@
       <excludeFolder url="file://$MODULE_DIR$/iti/vendor/graham-campbell/result-type" />
       <excludeFolder url="file://$MODULE_DIR$/iti/vendor/composer" />
       <excludeFolder url="file://$MODULE_DIR$/iti/vendor/laravel/ui" />
+      <excludeFolder url="file://$MODULE_DIR$/iti/vendor/carbonphp/carbon-doctrine-types" />
+      <excludeFolder url="file://$MODULE_DIR$/iti/vendor/psr/clock" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

@@ -16,7 +16,7 @@ class Student extends Model
     function post(){
         return $this->hasMany(Post::class);
     }
-    function  user(){
+    function user(){
         return $this->belongsTo(User::class);
     }
 }
